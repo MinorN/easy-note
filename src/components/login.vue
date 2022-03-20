@@ -40,11 +40,11 @@
 <script>
 import request from "../helper/request";
 
-
-request('/auth/login', 'POST', {username: 'hunger', password: '123456'})
+request('/auth')
   .then(data => {
     console.log(data);
   })
+
 
 export default {
   data() {
@@ -90,7 +90,10 @@ export default {
         }
         this.register.isError = false
         this.register.notice = ''
-        console.log(`start register..., username: ${this.register.username} , password: ${this.register.password}`)
+        request('/auth/register', 'POST', {username: this.register.username, password: this.register.password})
+          .then(data => {
+            console.log(data);
+          })
       }
       ,
       onLogin() {
@@ -106,8 +109,10 @@ export default {
         }
         this.login.isError = false
         this.login.notice = ''
-
-        console.log(`start login..., username: ${this.login.username} , password: ${this.login.password}`)
+        request('/auth/login', 'POST', {username: this.login.username, password: this.login.password})
+          .then(data => {
+            console.log(data);
+          })
       }
     }
 
