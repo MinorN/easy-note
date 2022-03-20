@@ -38,6 +38,13 @@
 </template>
 
 <script>
+import request from "../helper/request";
+
+
+request('/auth/login', 'POST', {username: 'hunger', password: '123456'})
+  .then(data => {
+    console.log(data);
+  })
 
 export default {
   data() {
@@ -149,11 +156,11 @@ export default {
   .form {
     width: 270px;
     border-left: 1px solid #ccc;
-   overflow: hidden;
+    overflow: hidden;
 
     h3 {
       padding: 10px 20px;
-     margin-top: - 1 px;
+      margin-top: -1px;
       font-weight: normal;
       font-size: 16px;
       border-top: 1px solid #eee;
