@@ -14,7 +14,7 @@
 
 <script>
 import avatar from './Avatar.vue'
-import request from "../helper/request"
+import Auth from "../apis/auth";
 
 export default {
   components: {
@@ -24,7 +24,7 @@ export default {
   methods:{
     logout(){
       console.log('logout');
-      request('auth/logout')
+      Auth.logout()
         .then(data=>{
           console.log(data);
         })
