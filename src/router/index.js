@@ -4,6 +4,7 @@ import Login from '../components/login.vue'
 import NotebookList from '../components/NotebookList.vue'
 import NoteDetail from '../components/NoteDetail.vue'
 import TrashDetail from '../components/TrashDetail'
+
 Vue.use(Router)
 
 export default new Router({
