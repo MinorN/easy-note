@@ -39,6 +39,8 @@
 
 <script>
 import Auth from "../apis/auth";
+import Bus from "../helper/bus";
+
 
 Auth.getInfo()
   .then(data => {
@@ -110,12 +112,14 @@ export default {
           this.login.notice = '密码长度为6~16个字符'
           return
         }
+
         Auth.login({
           username: this.login.username,
           password: this.login.password
         }).then(data => {
           this.login.isError = false
           this.login.notice = ''
+          Bus.$emit('userInfo',{username:this.login.username})
           this.$router.push({path: 'notebooks'})
         }).catch(data => {
           this.login.isError = true
