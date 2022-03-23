@@ -94,8 +94,7 @@ export default {
           .then(data => {
             console.log(data);
           })
-      }
-      ,
+      },
       onLogin() {
         if (!/^[\w\u4e00-\u9fa5]{3,15}$/.test(this.login.username)) {
           this.login.isError = true
