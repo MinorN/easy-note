@@ -95,6 +95,7 @@ export default {
         }).then(data => {
           this.register.isError = false
           this.register.notice = ''
+          Bus.$emit('userInfo',{username:this.login.username})
           this.$router.push({path: 'notebooks'})
         }).catch(data=>{
           this.register.isError = true
