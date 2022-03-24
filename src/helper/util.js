@@ -20,6 +20,7 @@ export function friendlyDate(dateStr){
       str = Math.floor(space/(1000*3600*24)) + '天前'
       break
   }
+
   return str
 }
 
